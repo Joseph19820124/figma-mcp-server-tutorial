@@ -2,6 +2,19 @@
 
 [English](#english) | [中文](#中文)
 
+> Complete tutorial for Figma MCP Server Community Edition  
+> 完整的 Figma MCP 服务器社区版使用教程
+
+---
+
+## 📚 Table of Contents / 目录
+
+- [Quick Start / 快速开始](#quick-start--快速开始)
+- [Detailed Documentation / 详细文档](#detailed-documentation--详细文档)
+- [Examples / 示例](#examples--示例)
+- [Configuration / 配置](#configuration--配置)
+- [Troubleshooting / 故障排除](#troubleshooting--故障排除)
+
 ---
 
 ## English
@@ -10,13 +23,15 @@
 
 The Figma MCP (Model Context Protocol) Server is a community-built server that enables AI assistants like Claude to interact with Figma design files. It allows you to:
 
-- Extract design data from Figma files
-- Download images and assets
-- Analyze design components
-- Generate code from designs
-- Automate design workflows
+- 🎨 Extract design data from Figma files
+- 📱 Download images and assets
+- 🔍 Analyze design components
+- 💻 Generate code from designs
+- ⚡ Automate design workflows
 
-### Prerequisites
+### Quick Start / 快速开始
+
+#### Prerequisites
 
 Before setting up the Figma MCP Server, ensure you have:
 
@@ -25,41 +40,62 @@ Before setting up the Figma MCP Server, ensure you have:
 3. **Figma Personal Access Token**
 4. **Claude Desktop** application
 
-### Step 1: Install the Figma MCP Server
+#### Installation Steps
 
+1. **Install the Figma MCP Server**
 ```bash
-# Install globally using npm
 npm install -g @modelcontextprotocol/server-figma
-
-# Or install using yarn
-yarn global add @modelcontextprotocol/server-figma
 ```
 
-### Step 2: Get Your Figma Access Token
+2. **Get Your Figma Access Token**
+   - Go to [Figma Settings](https://www.figma.com/settings)
+   - Create a new personal access token
+   - Copy and save the token securely
 
-1. Go to [Figma Settings](https://www.figma.com/settings)
-2. Scroll down to "Personal access tokens"
-3. Click "Create new token"
-4. Give it a name (e.g., "MCP Server")
-5. Copy the generated token (keep it secure!)
+3. **Configure Claude Desktop**
+   - Edit your Claude Desktop configuration file
+   - Add the Figma MCP server configuration
+   - Use the provided [configuration templates](config/)
 
-### Step 3: Configure Claude Desktop
+4. **Restart Claude Desktop**
+   - Close and restart Claude Desktop
+   - Test the integration with a Figma URL
 
-Edit your Claude Desktop configuration file:
+### Detailed Documentation / 详细文档
 
-**Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
-**macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+📖 **[Best Practices Guide](docs/best-practices.md)**
+- Security best practices
+- Performance optimization
+- File organization
+- Development workflow
 
-Add the following configuration:
+🔧 **[Troubleshooting Guide](docs/troubleshooting.md)**
+- Common issues and solutions
+- Debug mode instructions
+- Performance optimization
+- Contact support
 
+### Examples / 示例
+
+💡 **[Example Prompts](examples/prompts.md)**
+- Design analysis prompts
+- Code generation examples
+- Asset management workflows
+- Advanced use cases
+
+### Configuration / 配置
+
+⚙️ **Configuration Files:**
+- [Basic Configuration](config/claude-desktop-config.json) - Simple setup
+- [Advanced Configuration](config/claude-desktop-config-advanced.json) - With proxy and timeout settings
+
+#### Basic Configuration Example
 ```json
 {
   "mcpServers": {
     "figma": {
       "command": "npx",
-      "args": [
-        "@modelcontextprotocol/server-figma"
-      ],
+      "args": ["@modelcontextprotocol/server-figma"],
       "env": {
         "FIGMA_ACCESS_TOKEN": "YOUR_FIGMA_TOKEN_HERE"
       }
@@ -67,17 +103,6 @@ Add the following configuration:
   }
 }
 ```
-
-### Step 4: Restart Claude Desktop
-
-Close and restart Claude Desktop to load the new configuration.
-
-### Step 5: Test the Integration
-
-In Claude, try asking:
-- "Can you analyze the Figma file at [figma-url]?"
-- "Extract the colors from this Figma design"
-- "Download the icons from this Figma file"
 
 ### Available Commands
 
@@ -97,14 +122,6 @@ Claude will:
 3. Provide analysis of components, colors, typography, etc.
 ```
 
-### Troubleshooting
-
-**Common Issues:**
-
-1. **Token Error:** Ensure your Figma token is valid and has proper permissions
-2. **Connection Failed:** Check your internet connection and Figma status
-3. **File Access:** Make sure the Figma file is accessible with your token
-
 ---
 
 ## 中文
@@ -113,13 +130,15 @@ Claude will:
 
 Figma MCP（模型上下文协议）服务器是一个社区构建的服务器，它使 Claude 等 AI 助手能够与 Figma 设计文件进行交互。它允许您：
 
-- 从 Figma 文件中提取设计数据
-- 下载图像和资源
-- 分析设计组件
-- 从设计生成代码
-- 自动化设计工作流程
+- 🎨 从 Figma 文件中提取设计数据
+- 📱 下载图像和资源
+- 🔍 分析设计组件
+- 💻 从设计生成代码
+- ⚡ 自动化设计工作流程
 
-### 前置要求
+### 快速开始
+
+#### 前置要求
 
 在设置 Figma MCP 服务器之前，请确保您具备：
 
@@ -128,41 +147,62 @@ Figma MCP（模型上下文协议）服务器是一个社区构建的服务器�
 3. **Figma 个人访问令牌**
 4. **Claude Desktop** 应用程序
 
-### 步骤 1：安装 Figma MCP 服务器
+#### 安装步骤
 
+1. **安装 Figma MCP 服务器**
 ```bash
-# 使用 npm 全局安装
 npm install -g @modelcontextprotocol/server-figma
-
-# 或者使用 yarn 安装
-yarn global add @modelcontextprotocol/server-figma
 ```
 
-### 步骤 2：获取您的 Figma 访问令牌
+2. **获取您的 Figma 访问令牌**
+   - 前往 [Figma 设置页面](https://www.figma.com/settings)
+   - 创建新的个人访问令牌
+   - 复制并安全保存令牌
 
-1. 前往 [Figma 设置页面](https://www.figma.com/settings)
-2. 向下滚动到"个人访问令牌"部分
-3. 点击"创建新令牌"
-4. 给它一个名称（例如"MCP 服务器"）
-5. 复制生成的令牌（请妥善保管！）
+3. **配置 Claude Desktop**
+   - 编辑您的 Claude Desktop 配置文件
+   - 添加 Figma MCP 服务器配置
+   - 使用提供的[配置模板](config/)
 
-### 步骤 3：配置 Claude Desktop
+4. **重启 Claude Desktop**
+   - 关闭并重启 Claude Desktop
+   - 使用 Figma URL 测试集成
 
-编辑您的 Claude Desktop 配置文件：
+### 详细文档
 
-**Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
-**macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+📖 **[最佳实践指南](docs/best-practices.md)**
+- 安全最佳实践
+- 性能优化
+- 文件组织
+- 开发工作流程
 
-添加以下配置：
+🔧 **[故障排除指南](docs/troubleshooting.md)**
+- 常见问题和解决方案
+- 调试模式说明
+- 性能优化
+- 联系支持
 
+### 示例
+
+💡 **[示例提示](examples/prompts.md)**
+- 设计分析提示
+- 代码生成示例
+- 资产管理工作流程
+- 高级用例
+
+### 配置
+
+⚙️ **配置文件：**
+- [基础配置](config/claude-desktop-config.json) - 简单设置
+- [高级配置](config/claude-desktop-config-advanced.json) - 包含代理和超时设置
+
+#### 基础配置示例
 ```json
 {
   "mcpServers": {
     "figma": {
       "command": "npx",
-      "args": [
-        "@modelcontextprotocol/server-figma"
-      ],
+      "args": ["@modelcontextprotocol/server-figma"],
       "env": {
         "FIGMA_ACCESS_TOKEN": "在此处填入您的_FIGMA_令牌"
       }
@@ -170,17 +210,6 @@ yarn global add @modelcontextprotocol/server-figma
   }
 }
 ```
-
-### 步骤 4：重启 Claude Desktop
-
-关闭并重启 Claude Desktop 以加载新配置。
-
-### 步骤 5：测试集成
-
-在 Claude 中，尝试询问：
-- "您能分析这个 Figma 文件吗：[figma-url]？"
-- "从这个 Figma 设计中提取颜色"
-- "从这个 Figma 文件下载图标"
 
 ### 可用命令
 
@@ -200,67 +229,89 @@ Claude 将：
 3. 提供组件、颜色、排版等分析
 ```
 
-### 故障排除
+---
 
-**常见问题：**
+## 🚀 Advanced Features / 高级功能
 
-1. **令牌错误：** 确保您的 Figma 令牌有效且具有适当权限
-2. **连接失败：** 检查您的网络连接和 Figma 状态
-3. **文件访问：** 确保使用您的令牌可以访问 Figma 文件
+### Batch Processing / 批量处理
+- Process multiple Figma files simultaneously
+- Export assets in batch
+- Generate design tokens for entire design systems
 
-### 高级用法
+### CI/CD Integration / CI/CD 集成
+- Automate design asset sync
+- Version control for design files
+- Continuous deployment of design updates
 
-#### 批量处理
+### Team Collaboration / 团队协作
+- Shared configuration templates
+- Design handoff automation
+- Cross-platform asset generation
 
-```json
-{
-  "mcpServers": {
-    "figma": {
-      "command": "npx",
-      "args": [
-        "@modelcontextprotocol/server-figma"
-      ],
-      "env": {
-        "FIGMA_ACCESS_TOKEN": "你的令牌",
-        "FIGMA_TIMEOUT": "30000"
-      }
-    }
-  }
-}
+---
+
+## 📁 Project Structure / 项目结构
+
+```
+figma-mcp-server-tutorial/
+├── README.md                          # Main tutorial (this file)
+├── config/                           # Configuration templates
+│   ├── claude-desktop-config.json    # Basic configuration
+│   └── claude-desktop-config-advanced.json # Advanced configuration
+├── docs/                             # Detailed documentation
+│   ├── best-practices.md             # Best practices guide
+│   └── troubleshooting.md            # Troubleshooting guide
+└── examples/                         # Example usage
+    └── prompts.md                    # Example prompts and use cases
 ```
 
-#### 代理设置
+---
 
-如果您在公司网络环境中：
+## 🤝 Contributing / 贡献
 
-```json
-{
-  "mcpServers": {
-    "figma": {
-      "command": "npx",
-      "args": [
-        "@modelcontextprotocol/server-figma"
-      ],
-      "env": {
-        "FIGMA_ACCESS_TOKEN": "你的令牌",
-        "HTTP_PROXY": "http://proxy.company.com:8080",
-        "HTTPS_PROXY": "http://proxy.company.com:8080"
-      }
-    }
-  }
-}
-```
+We welcome contributions! Please feel free to:
+- Submit issues for bugs or feature requests
+- Create pull requests for improvements
+- Add more example prompts and use cases
+- Translate documentation to other languages
 
-## 许可证
+欢迎贡献！请随时：
+- 提交错误或功能请求的问题
+- 创建改进的拉取请求
+- 添加更多示例提示和用例
+- 将文档翻译成其他语言
 
+---
+
+## 📄 License / 许可证
+
+This tutorial is released under the MIT License.
 本教程基于 MIT 许可证发布。
 
-## 贡献
+---
 
-欢迎提交问题和拉取请求！
+## 🔗 Related Links / 相关链接
 
-## 相关链接
-
-- [Figma API 文档](https://www.figma.com/developers/api)
-- [MCP 官方文档](https://modelcontextprotocol.io/)
+- [Figma API Documentation](https://www.figma.com/developers/api)
+- [MCP Official Documentation](https://modelcontextprotocol.io/)
 - [Claude Desktop](https://claude.ai/download)
+- [Figma Community](https://www.figma.com/community)
+
+---
+
+## ⭐ Show Your Support / 表示支持
+
+If this tutorial helped you, please consider:
+- Starring this repository ⭐
+- Sharing it with your team
+- Contributing improvements
+
+如果这个教程对您有帮助，请考虑：
+- 为此仓库加星 ⭐
+- 与您的团队分享
+- 贡献改进
+
+---
+
+**Happy designing with AI! 🎨✨**  
+**与 AI 愉快设计！🎨✨**
