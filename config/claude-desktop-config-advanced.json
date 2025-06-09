@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "figma": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-figma"
+      ],
+      "env": {
+        "FIGMA_ACCESS_TOKEN": "YOUR_FIGMA_TOKEN_HERE",
+        "FIGMA_TIMEOUT": "30000",
+        "HTTP_PROXY": "http://proxy.company.com:8080",
+        "HTTPS_PROXY": "http://proxy.company.com:8080"
+      }
+    }
+  }
+}
